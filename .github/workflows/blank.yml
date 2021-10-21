@@ -1,0 +1,19 @@
+name: CI
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-2022, macos-11, ubuntu-latest]
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: ninja check
+        run: |
+          ninja --version

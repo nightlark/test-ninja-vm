@@ -14,6 +14,7 @@ jobs:
         os: [windows-2022, macos-11, ubuntu-latest]
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: ninja install
+        run: pip install ninja
       - name: ninja check
-        run: |
-          ninja --version
+        run: ninja --version
